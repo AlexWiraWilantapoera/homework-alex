@@ -7,94 +7,95 @@ function getRandomInt(max) {
 }
 
 // fungsi generate array dengan nilai random
-function generateAngkaRandom(jumlah) {
-  const angka_random = [];
-  for (i = 0; i < jumlah; i++) {
-    angka_random[i] = getRandomInt(jumlah);
+function generateArrayRandom(sum, sumInt) {
+  const randomVal = [];
+  for (i = 0; i < sum; i++) {
+    randomVal[i] = getRandomInt(sumInt);
   }
-  return angka_random;
+  return randomVal;
 }
 
 // fungsi membagi array berdasarkan index ganjil
-function splitArrayOdd(list_angka, arrayLength) {
-  const ganjil = [];
+function splitArrayOdd(array, arrayLength) {
+  const oddArray = [];
   for (i = 0; i < arrayLength; i++) {
     if (i % 2 != 0) {
-      ganjil.push(list_angka[i]);
+      oddArray.push(array[i]);
     }
   }
-  return ganjil;
+  return oddArray;
 }
 
 // fungsi membagi array berdasarkan index genap
-function splitArrayEven(list_angka, arrayLength) {
-  const genap = [];
+function splitArrayEven(array, arrayLength) {
+  const evenArray = [];
   for (i = 0; i < arrayLength; i++) {
     if (i % 2 == 0) {
-      genap.push(list_angka[i]);
+      evenArray.push(array[i]);
     }
   }
-  return genap;
+  return evenArray;
 }
 
 // fungsi total
-function totalJumlah(list_angka) {
+function totalSum(array) {
   let total = 0;
-  for (key in list_angka) {
-    total = total + list_angka[key];
+  for (key in array) {
+    total = total + array[key];
   }
   return total;
 }
 
 // fungsi rata-rata
-function rataRata(list_angka, jumlah) {
+function rataRata(array, sum) {
   let total = 0;
-  for (key in list_angka) {
-    total = total + list_angka[key];
+  for (key in array) {
+    total = total + array[key];
   }
-  let rerata = total / (jumlah / 2);
+  let rerata = total / (sum / 2);
   return rerata;
 }
 
 // fungsi minimum
-function angkaMinimum(list_angka) {
-  let angka_terkecil = 1000;
-  for (val of list_angka) {
-    if (val < angka_terkecil) {
-      angka_terkecil = val;
+function min(array) {
+  let minVal = 1000;
+  for (val of array) {
+    if (val < minVal) {
+      minVal = val;
     }
   }
-  return angka_terkecil;
+  return minVal;
 }
 
 // fungsi maximum
-function angkaMaximum(list_angka) {
-  let angka_terbesar = 0;
-  for (val of list_angka) {
-    if (val > angka_terbesar) {
-      angka_terbesar = val;
+function max(array) {
+  let maxVal = 0;
+  for (val of array) {
+    if (val > maxVal) {
+      maxVal = val;
     }
   }
-  return angka_terbesar;
+  return maxVal;
 }
 // Deklarasi Function - END
 
 // Eksekusi Function - START
-let panjangArray = 100;
+let arrayLen = 100;
+let randInt = 50;
 
-const arrayRandom = generateAngkaRandom(panjangArray);
+const arrayRandom = generateArrayRandom(arrayLen, randInt);
 console.log(arrayRandom);
 
 // split array
-const arrayGanjil = splitArrayOdd(arrayRandom, panjangArray);
-const arrayGenap = splitArrayEven(arrayRandom, panjangArray);
+const arrayGanjil = splitArrayOdd(arrayRandom, arrayLen);
+const arrayGenap = splitArrayEven(arrayRandom, arrayLen);
 
 console.log("array dengan index ganjil = ", arrayGanjil);
 console.log("array dengan index genap = ", arrayGenap);
 
 // menghitung total
-let totalGanjil = totalJumlah(arrayGanjil);
-let totalGenap = totalJumlah(arrayGenap);
+let totalGanjil = totalSum(arrayGanjil);
+let totalGenap = totalSum(arrayGenap);
 
 console.log("total nilai pada array dengan index ganjil = ", totalGanjil);
 console.log("total nilai pada array dengan index genap = ", totalGenap);
@@ -106,10 +107,11 @@ if (totalGanjil > totalGenap) {
 } else {
   console.log("total nilai pada kedua array sama besar");
 }
+console.log("\n");
 
 // menghitung rata-rata
-let rerataGanjil = rataRata(arrayGanjil, panjangArray);
-let rerataGenap = rataRata(arrayGenap, panjangArray);
+let rerataGanjil = rataRata(arrayGanjil, arrayLen);
+let rerataGenap = rataRata(arrayGenap, arrayLen);
 
 console.log("rata-rata nilai pada array dengan index ganjil = ", rerataGanjil);
 console.log("rata-rata nilai pada array dengan index genap = ", rerataGenap);
@@ -121,10 +123,11 @@ if (rerataGanjil > rerataGenap) {
 } else {
   console.log("nilai rata-rata pada kedua array sama besar");
 }
+console.log("\n");
 
 // menghitung minimum
-let minGanjil = angkaMinimum(arrayGanjil);
-let minGenap = angkaMinimum(arrayGenap);
+let minGanjil = min(arrayGanjil);
+let minGenap = min(arrayGenap);
 
 console.log("nilai minimum pada array dengan index ganjil = ", minGanjil);
 console.log("nilai minimum pada array dengan index genap = ", minGenap);
@@ -136,10 +139,11 @@ if (minGanjil > minGenap) {
 } else {
   console.log("nilai minimum pada kedua array sama besar");
 }
+console.log("\n");
 
 // maximum
-let maxGanjil = angkaMaximum(arrayGanjil);
-let maxGenap = angkaMaximum(arrayGenap);
+let maxGanjil = max(arrayGanjil);
+let maxGenap = max(arrayGenap);
 
 console.log("nilai maximum pada array dengan index ganjil = ", maxGanjil);
 console.log("nilai maximum pada array dengan index genap = ", maxGenap);
