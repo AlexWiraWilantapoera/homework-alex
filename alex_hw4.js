@@ -47,13 +47,13 @@ function totalSum(array) {
 }
 
 // fungsi rata-rata
-function rataRata(array, sum) {
+function mean(array, sum) {
   let total = 0;
   for (key in array) {
     total = total + array[key];
   }
-  let rerata = total / (sum / 2);
-  return rerata;
+  let res = total / (sum / 2);
+  return res;
 }
 
 // fungsi minimum
@@ -87,22 +87,22 @@ const arrayRandom = generateArrayRandom(arrayLen, randInt);
 console.log(arrayRandom);
 
 // split array
-const arrayGanjil = splitArrayOdd(arrayRandom, arrayLen);
-const arrayGenap = splitArrayEven(arrayRandom, arrayLen);
+const arrayOdd = splitArrayOdd(arrayRandom, arrayLen);
+const arrayEven = splitArrayEven(arrayRandom, arrayLen);
 
-console.log("array dengan index ganjil = ", arrayGanjil);
-console.log("array dengan index genap = ", arrayGenap);
+console.log("array dengan index ganjil = ", arrayOdd);
+console.log("array dengan index genap = ", arrayEven);
 
 // menghitung total
-let totalGanjil = totalSum(arrayGanjil);
-let totalGenap = totalSum(arrayGenap);
+let sumOdd = totalSum(arrayOdd);
+let sumEven = totalSum(arrayEven);
 
-console.log("total nilai pada array dengan index ganjil = ", totalGanjil);
-console.log("total nilai pada array dengan index genap = ", totalGenap);
+console.log("total nilai pada array dengan index ganjil = ", sumOdd);
+console.log("total nilai pada array dengan index genap = ", sumEven);
 
-if (totalGanjil > totalGenap) {
+if (sumOdd > sumEven) {
   console.log("total array ganjil > total array genap");
-} else if (totalGanjil < totalGenap) {
+} else if (sumOdd < sumEven) {
   console.log("total array genap > total array ganjil");
 } else {
   console.log("total nilai pada kedua array sama besar");
@@ -110,15 +110,15 @@ if (totalGanjil > totalGenap) {
 console.log("\n");
 
 // menghitung rata-rata
-let rerataGanjil = rataRata(arrayGanjil, arrayLen);
-let rerataGenap = rataRata(arrayGenap, arrayLen);
+let meanOdd = mean(arrayOdd, arrayLen);
+let meanEven = mean(arrayEven, arrayLen);
 
-console.log("rata-rata nilai pada array dengan index ganjil = ", rerataGanjil);
-console.log("rata-rata nilai pada array dengan index genap = ", rerataGenap);
+console.log("rata-rata nilai pada array dengan index ganjil = ", meanOdd);
+console.log("rata-rata nilai pada array dengan index genap = ", meanEven);
 
-if (rerataGanjil > rerataGenap) {
+if (meanOdd > meanEven) {
   console.log("rata-rata array ganjil > rata-rata array genap");
-} else if (rerataGanjil < rerataGenap) {
+} else if (meanOdd < meanEven) {
   console.log("rata-rata array genap > rata-rata array ganjil");
 } else {
   console.log("nilai rata-rata pada kedua array sama besar");
@@ -126,15 +126,15 @@ if (rerataGanjil > rerataGenap) {
 console.log("\n");
 
 // menghitung minimum
-let minGanjil = min(arrayGanjil);
-let minGenap = min(arrayGenap);
+let minOdd = min(arrayOdd);
+let minEven = min(arrayEven);
 
-console.log("nilai minimum pada array dengan index ganjil = ", minGanjil);
-console.log("nilai minimum pada array dengan index genap = ", minGenap);
+console.log("nilai minimum pada array dengan index ganjil = ", minOdd);
+console.log("nilai minimum pada array dengan index genap = ", minEven);
 
-if (minGanjil > minGenap) {
+if (minOdd > minEven) {
   console.log("nilai minimum pada array ganjil > nilai minimum pada array genap");
-} else if (minGanjil < minGenap) {
+} else if (minOdd < minEven) {
   console.log("nilai minimum pada array genap > nilai minimum pada array ganjil");
 } else {
   console.log("nilai minimum pada kedua array sama besar");
@@ -142,15 +142,15 @@ if (minGanjil > minGenap) {
 console.log("\n");
 
 // maximum
-let maxGanjil = max(arrayGanjil);
-let maxGenap = max(arrayGenap);
+let maxOdd = max(arrayOdd);
+let maxEven = max(arrayEven);
 
-console.log("nilai maximum pada array dengan index ganjil = ", maxGanjil);
-console.log("nilai maximum pada array dengan index genap = ", maxGenap);
+console.log("nilai maximum pada array dengan index ganjil = ", maxOdd);
+console.log("nilai maximum pada array dengan index genap = ", maxEven);
 
-if (maxGanjil > maxGenap) {
+if (maxOdd > maxEven) {
   console.log("nilai maximum pada array ganjil > nilai maximum pada array genap");
-} else if (maxGanjil < maxGenap) {
+} else if (maxOdd < maxEven) {
   console.log("nilai maximum pada array genap > nilai maximum pada array ganjil");
 } else {
   console.log("nilai maximum pada kedua array sama besar");
